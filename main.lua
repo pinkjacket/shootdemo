@@ -15,6 +15,10 @@ function love.update(dt)
   
   for i,v in ipairs(listOfBullets) do
     v:update(dt)
+    v:checkCollision(enemy)
+    if v.dead then
+      table.remove(listOfBullets, i)
+    end
   end
 end
 
